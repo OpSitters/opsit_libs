@@ -1,4 +1,4 @@
-name             'opsit_ops'
+name             'opsit_libs'
 maintainer       'OpSitters'
 maintainer_email 'oss@opsitters.com'
 version          '1.0.1'
