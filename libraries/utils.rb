@@ -36,6 +36,7 @@ module OPSITTERS
       end
     end
     attrib_value
+  end
 
 end #end module
 
