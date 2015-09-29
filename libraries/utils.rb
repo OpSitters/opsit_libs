@@ -25,7 +25,7 @@ module OPSITTERS
   # 'opsit.internal_ip' and returns its value
   def get_node_attrib(nodeish, attribute)
     attrib_value = nodeish
-    unless attribute.includes?('.')
+    unless attribute.include?('.')
       if nodeish.respond_to?(attribute)
         attrib_value = nodeish[attribute]
       else
