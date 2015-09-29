@@ -25,14 +25,22 @@ module OPSITTERS
   # 'opsit.internal_ip' and returns its value
   def get_node_attrib(nodeish, attribute)
     attrib_value = nodeish
-    path_ary = attribute.split('.')
-    path_ary.each do |k|
-      if attrib_value && attrib_value.key?(k)
-        attrib_value = attrib_value[k]
-      elsif attrib_value && attrib_value.respond_to?(k)
-        attrib_value = attrib_value.send(k)
+    unless attribute.includes?('.')
+      if nodeish.respond_to?(attribute)
+        attrib_value = nodeish[attribute]
       else
         attrib_value = nil
+      end
+    else
+      path_ary = attribute.split('.')
+      path_ary.each do |k|
+        if attrib_value && attrib_value.key?(k)
+          attrib_value = attrib_value[k]
+        elsif attrib_value && attrib_value.respond_to?(k)
+          attrib_value = attrib_value.send(k)
+        else
+          attrib_value = nil
+        end
       end
     end
     attrib_value
