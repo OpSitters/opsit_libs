@@ -32,25 +32,25 @@ module OPSITTERS
   def opsit_debug(msg, prefix="")
     # grab the caller's name (between quotes `') off the top of stack
     method = caller[0][/`([^']*)'/, 1]
-    Chef::Log.debug("OPSITTERS: #{prefix}#{method}(): #{msg}")
+    Chef::Log.debug("#{prefix}#{method}(): #{msg}")
   end
 
-  def opsit_log(msg)
+  def opsit_log(msg, prefix="")
     # grab the caller's name (between quotes `') off the top of stack
     method = caller[0][/`([^']*)'/, 1]
-    Chef::Log.info("OPSITTERS: #{method}(): #{msg}")
+    Chef::Log.info("#{prefix}#{method}(): #{msg}")
   end
 
-  def opsit_warn(msg)
+  def opsit_warn(msg, prefix="")
     # grab the caller's name (between quotes `') off the top of stack
     method = caller[0][/`([^']*)'/, 1]
-    Chef::Log.warn("OPSITTERS: #{method}(): #{msg}")
+    Chef::Log.warn("#{prefix}#{method}(): #{msg}")
   end
 
-  def opsit_error(msg)
+  def opsit_error(msg, prefix="")
     # grab the caller's name (between quotes `') off the top of stack
     method = caller[0][/`([^']*)'/, 1]
-    Chef::Log.error("OPSITTERS: #{method}(): #{msg}")
+    Chef::Log.error("#{prefix}#{method}(): #{msg}")
   end
 
 
