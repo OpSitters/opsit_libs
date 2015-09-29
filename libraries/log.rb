@@ -50,7 +50,7 @@ module OPSITTERS
   def opsit_error(msg)
     # grab the caller's name (between quotes `') off the top of stack
     method = caller[0][/`([^']*)'/, 1]
-    Chef::Log.info("OPSITTERS: #{method}(): #{msg}")
+    Chef::Log.error("OPSITTERS: #{method}(): #{msg}")
   end
 
 
