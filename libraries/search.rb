@@ -99,7 +99,7 @@ module OPSITTERS
         query = "#{query_type}s:#{search_string}"
       end
 
-      if not location == "all"
+      if location and location != "all"
         query << " AND OPSITTERS_location:#{location}"
       end
 
